@@ -9,7 +9,7 @@ class exper:
         self.close = 0
         self.corporable = 0
         self.swappable = 0
-        self.niyuan = 0
+        self.inverse = 0
 
     def userinput(self):
         self.var = raw_input("Input the range of var \n").split(" ")
@@ -28,14 +28,20 @@ class exper:
             print "It's not a halfgroup"
 
     def isIdentity(self):
-        # not finish
-        if not self.Identitylist :
-            print "No Identity"
-        else :
-            print "There are %d Identity(s) : %s" % (len(self.Identitylist),tuple(self.Identitylist))
-
-    def inverse(self):
-        pass
+    	for i in range(self.num) :
+    		flag = 1
+    		for j in range(self.num):
+    			if self.value[i][j] != self.var[j] :
+    				flag = 0
+    		for j in range(self.num):
+    			if self.value[j][i] != self.var[j] :
+    				flag = 0
+    		if flag :
+    			self.Identitylist.append(self.var[i])
+    	if not self.Identitylist :
+    		print "There is no Identitylist"
+    	else :
+    		print "There are %d idempotent(s) : %s " % (len(self.Identitylist),tuple(self.Identitylist))
 
     def debug(self):
         print self.var
@@ -61,8 +67,8 @@ class exper:
     def checkJH(self):
         flag = 0 
         for i in range(self.num):
-            for j in range(i,self.num):
-                for k in range(j,self.num):
+            for j in range(self.num):
+                for k in range(self.num):
                     value1 = self.value[self.findpos(self.value[i][j])][k]
                     value2 = self.value[i][self.findpos(self.value[j][k])]
                     if value1 != value2:
@@ -101,6 +107,24 @@ class exper:
         if flag == 0 :
             print "It's idempotent"    
 
+    def checkgroup(self):
+    	if self.ishalfgroup and self.inverse :
+    		print "It's a group"
+    	else :
+    		print "It's not a group"
+    
+    def isinverse(self):
+    	count = 0
+    	if len(self.Identitylist) != 1 :
+    		self.inverse = 0
+    		return 0
+    	for i in range(self.num):
+    		for j in range(self.num):
+    			if self.value[i][j] in self.Identitylist:
+    				count += 1
+    	if count == self.num :
+    		self.inverse = 1
+
     def check(self):
         self.checkFB()
         self.checkEX()
@@ -108,10 +132,14 @@ class exper:
         self.checkJH()
         self.ishalfgroup()
         self.isIdentity()
+        self.isinverse()
+        self.checkgroup()
 
     def mainloop(self):
+    	self.__init__()
         self.userinput()
         self.check()
+
 
 while (1) :
     process = exper()
