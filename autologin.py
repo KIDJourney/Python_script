@@ -16,8 +16,8 @@ class login() :
     def wifilogin(self):
         url = "http://172.19.255.150/"
         userdata = {}
-        userdata["DDDDD"] = "1307010412"
-        userdata["upass"] = "a155eb34675a4adc9e73e3a9b5cd0694123456781"
+        userdata["DDDDD"] = ""
+        userdata["upass"] = ""
         userdata["R1"] = "0"
         userdata["R2"] = "1"
         userdata["prar"]  ="00"
@@ -36,7 +36,7 @@ class login() :
         url = "http://222.195.191.231:801/eportal/?c=ACSetting&a=Login&wlanuserip=null&wlanacip=null&wlanacname=null&port=&iTermType=1&session=null"
         userdata = {}
         userdata["DDDDD"] = "1307010412@upc"
-        userdata['upass'] = "Andthejourney123"
+        userdata['upass'] = ""
         userdata['R1'] = "0"
         userdata['R2'] = ""
         userdata['R6'] = "0"
