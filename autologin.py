@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import urllib 
 import urllib2
 import cookielib
@@ -27,6 +28,8 @@ loginreq = urllib2.Request(loginurl,userdata,headers)
 logincontent = opener.open(loginreq)
 
 =======
+=======
+>>>>>>> a29f28e7217bc2632d111fa04f664114c055f2b0
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Position: C:\Users\KIDJourney\Desktop\autologin.py
@@ -89,5 +92,9 @@ class login() :
             pass
 
 job = login()
+<<<<<<< HEAD
 job.main()
 >>>>>>> a29f28e... update
+=======
+job.main()
+>>>>>>> a29f28e7217bc2632d111fa04f664114c055f2b0
