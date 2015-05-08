@@ -1,35 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-import urllib 
-import urllib2
-import cookielib
-import time
-
-loginurl = ""
-submiturl = ""
-
-userdata = {}
-userdata['user_id'] = ""
-userdata['password'] = ""
-userdata = urllib.urlencode(userdata)
-
-postdata = {}
-postdata['id'] = ""
-postdata['language'] = ""
-postdata['source'] = """"""
-postdata['input_text'] = ''
-postdata['out'] = ''
-postdata = urllib.urlencode(postdata)
-
-cj = cookielib.CookieJar()
-opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-headers ={"User-agent":"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1"}
-loginreq = urllib2.Request(loginurl,userdata,headers)
-logincontent = opener.open(loginreq)
-
-=======
-=======
->>>>>>> a29f28e7217bc2632d111fa04f664114c055f2b0
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Position: C:\Users\KIDJourney\Desktop\autologin.py
@@ -67,7 +35,7 @@ class login() :
     def writedlogin(self):
         url = "http://222.195.191.231:801/eportal/?c=ACSetting&a=Login&wlanuserip=null&wlanacip=null&wlanacname=null&port=&iTermType=1&session=null"
         userdata = {}
-        userdata["DDDDD"] = "1307010412@upc"
+        userdata["DDDDD"] = "@upc"
         userdata['upass'] = ""
         userdata['R1'] = "0"
         userdata['R2'] = ""
@@ -92,9 +60,4 @@ class login() :
             pass
 
 job = login()
-<<<<<<< HEAD
 job.main()
->>>>>>> a29f28e... update
-=======
-job.main()
->>>>>>> a29f28e7217bc2632d111fa04f664114c055f2b0
